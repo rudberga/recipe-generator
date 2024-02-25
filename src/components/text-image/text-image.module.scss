@@ -9,6 +9,24 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	.LargeText {
+		font-size: 42px;
+		font-weight: 600;
+		line-height: 1.4;
+
+		p:nth-child(2) {
+			color: #ffb800;
+		}
+	}
+
+	.SmallText {
+		padding-top: 12px;
+		color: #636363;
+		font-weight: 200;
+		font-size: 12px;
+		line-height: 1.5;
+	}
 }
 
 .ImagesWrapper {

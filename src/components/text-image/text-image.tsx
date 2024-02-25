@@ -6,8 +6,19 @@ const TextImageSection: FC = () => {
 	return (
 		<div className={classes.TextImageContainer}>
 			<div className={classes.Text}>
-				<h2>LARGE TEXT</h2>
-				<p>SMALLER TEXT OVER HERE MATE</p>
+				{/* Placeholder texts  */}
+				<div className={classes.LargeText}>
+					<p>Welcome to</p>
+					<p>Flavorful</p>
+					<p>Discoveries!</p>
+				</div>
+				<div className={classes.SmallText}>
+					<p>
+						Unleash your culinary creativity with our personalized recipe
+						generator. Let's tailor your cooking experience based on your
+						preferences. Follow the simple steps below
+					</p>
+				</div>
 			</div>
 			<div className={classes.ImagesWrapper}>
 				<div>

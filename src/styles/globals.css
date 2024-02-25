@@ -85,6 +85,8 @@ body {
   overflow-x: hidden;
   padding: 16px;
   height: 100%;
+  font-family: 'Gilroy', sans-serif;
+  color: #2F2F2F;
 }
 
 /* @media (prefers-color-scheme: dark) {
