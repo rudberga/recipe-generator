@@ -1,0 +1,12 @@
+.BackgroundStyle {
+	background-image: url('/green-blob.svg');
+	width: 55%;
+	height: 100vh;
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: -1;
+}
