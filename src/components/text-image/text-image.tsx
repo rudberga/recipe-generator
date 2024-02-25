@@ -15,7 +15,7 @@ const TextImageSection: FC = () => {
 				<div className={classes.SmallText}>
 					<p>
 						Unleash your culinary creativity with our personalized recipe
-						generator. Let's tailor your cooking experience based on your
+						generator. Let us tailor your cooking experience based on your
 						preferences. Follow the simple steps below
 					</p>
 				</div>
