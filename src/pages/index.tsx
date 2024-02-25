@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import DynamicBackground from '@/components/dynamic-background/dynamic-background'
+import Header from '@/components/header/header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,6 +17,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
+				<Header />
 				<DynamicBackground />
 			</main>
 		</>
