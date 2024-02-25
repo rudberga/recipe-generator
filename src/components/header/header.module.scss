@@ -2,12 +2,14 @@
 	display: flex;
 	justify-content: space-between;
 	background-color: transparent;
+	align-items: center;
 }
 
 .LeftSideIcons {
 }
 
 .RightSideIcons {
+	color: #424242;
 	display: flex;
 	gap: 16px;
 }

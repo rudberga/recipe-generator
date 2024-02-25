@@ -1,0 +1,16 @@
+.TextImageContainer {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 24px;
+}
+
+.Text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.ImagesWrapper {
+	display: flex;
+	gap: 12px;
+}
