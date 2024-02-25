@@ -19,6 +19,10 @@
 	div:nth-child(1) {
 		img {
 			border-radius: 100px;
+			border-left: 1px solid black;
+			border-top: 1px solid black;
+			padding-left: 5px;
+			padding-top: 5px;
 		}
 	}
 
@@ -27,6 +31,10 @@
 
 		img {
 			border-radius: 100px;
+			border-right: 1px solid black;
+			border-bottom: 1px solid black;
+			padding-right: 5px;
+			padding-bottom: 5px;
 		}
 	}
 }
