@@ -25,16 +25,16 @@ const TextImageSection: FC = () => {
 					<Image
 						alt='placeholder'
 						src='/placeholder-food.jpg'
-						height={325}
-						width={200}
+						height={375}
+						width={250}
 					></Image>
 				</div>
 				<div>
 					<Image
 						alt='placeholder'
 						src='/placeholder-food.jpg'
-						height={325}
-						width={200}
+						height={375}
+						width={250}
 					></Image>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 24px;
-	min-height: 400px;
+	padding-top: 48px;
 }
 
 .Text {
@@ -36,7 +36,7 @@
 
 	div:nth-child(1) {
 		img {
-			border-radius: 100px;
+			border-radius: 120px;
 			border-left: 1px solid black;
 			border-top: 1px solid black;
 			padding-left: 5px;
@@ -48,7 +48,7 @@
 		padding-top: 86px;
 
 		img {
-			border-radius: 100px;
+			border-radius: 120px;
 			border-right: 1px solid black;
 			border-bottom: 1px solid black;
 			padding-right: 5px;
