@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 import classes from './text-image.module.scss'
+import ButtonBasic from '../button/button'
 
 const TextImageSection: FC = () => {
 	return (
@@ -15,12 +16,15 @@ const TextImageSection: FC = () => {
 				<div className={classes.SmallText}>
 					<p>
 						Unleash your culinary creativity with our personalized recipe generator. 
-						<br />
+						{/* <br /> */}
 						Let us tailor your cooking experience based on your
 						preferences. 
-						<br />
+						{/* <br /> */}
 						Follow the simple steps below :
 					</p>
+				</div>
+				<div className={classes.StartButtonContainer}>
+					<ButtonBasic text="Let's start! "/>
 				</div>
 			</div>
 			<div className={classes.ImagesWrapper}>
