@@ -9,14 +9,17 @@ const TextImageSection: FC = () => {
 				{/* Placeholder texts  */}
 				<div className={classes.LargeText}>
 					<p>Welcome to</p>
-					<p>Flavorful</p>
-					<p>Discoveries!</p>
+					<p>Placeholder</p>
+					<p>Text!</p>
 				</div>
 				<div className={classes.SmallText}>
 					<p>
-						Unleash your culinary creativity with our personalized recipe
-						generator. Let us tailor your cooking experience based on your
-						preferences. Follow the simple steps below
+						Unleash your culinary creativity with our personalized recipe generator. 
+						<br />
+						Let us tailor your cooking experience based on your
+						preferences. 
+						<br />
+						Follow the simple steps below :
 					</p>
 				</div>
 			</div>
@@ -24,7 +27,7 @@ const TextImageSection: FC = () => {
 				<div>
 					<Image
 						alt='placeholder'
-						src='/placeholder-food.jpg'
+						src='/placeholder-food2.jpeg'
 						height={375}
 						width={250}
 					></Image>
