@@ -1,9 +1,15 @@
 import Image from 'next/image'
 import { FC } from 'react'
-import classes from './text-image.module.scss'
+import classes from './text-image-btn.module.scss'
 import ButtonBasic from '../button/button'
 
-const TextImageSection: FC = () => {
+interface TextImageBtnSectionProps {
+	handleShowQuestionsBtnClick: () => void
+}
+
+const TextImageBtnSection: FC<TextImageBtnSectionProps> = ({
+	handleShowQuestionsBtnClick,
+}) => {
 	return (
 		<div className={classes.TextImageContainer}>
 			<div className={classes.Text}>
@@ -24,7 +30,7 @@ const TextImageSection: FC = () => {
 					</p>
 				</div>
 				<div className={classes.StartButtonContainer}>
-					<ButtonBasic text="Let's start! "/>
+					<ButtonBasic text="Let's start! " onClick={handleShowQuestionsBtnClick}/>
 				</div>
 			</div>
 			<div className={classes.ImagesWrapper}>
@@ -49,4 +55,4 @@ const TextImageSection: FC = () => {
 	)
 }
 
-export default TextImageSection
+export default TextImageBtnSection

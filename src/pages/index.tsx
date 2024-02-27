@@ -3,11 +3,16 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import DynamicBackground from '@/components/dynamic-background/dynamic-background'
 import Header from '@/components/header/header'
-import TextImageSection from '@/components/text-image/text-image'
-
-const inter = Inter({ subsets: ['latin'] })
+import TextImageBtnSection from '@/components/text-image/text-image-btn'
+import { useState } from 'react'
 
 export default function Home() {
+	const [showQuestionsCard, setShowQuestionsCard] = useState(false)
+
+	const handleShowQuestionsBtnClick = () => {
+		setShowQuestionsCard(true)
+	}
+
 	return (
 		<>
 			<Head>
@@ -19,7 +24,12 @@ export default function Home() {
 			<main>
 				<DynamicBackground />
 				<Header />
-				<TextImageSection />
+				{!showQuestionsCard && 
+					<TextImageBtnSection handleShowQuestionsBtnClick={handleShowQuestionsBtnClick}/>
+				}
+				{showQuestionsCard && 
+					<div>QUESTIONS CARD RENDERED</div>
+				}
 			</main>
 		</>
 	)

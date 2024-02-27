@@ -4,11 +4,13 @@ import { FaLongArrowAltRight } from "react-icons/fa"
 import classes from './button.module.scss'
 
 interface ButtonBasicProps {
-    text: string
+    text: string,
+    onClick: () => void,
 }
 
 const ButtonBasic: FC<ButtonBasicProps> = ({
-    text
+    text,
+    onClick,
 }) => {
     return (
         <Button
@@ -16,6 +18,7 @@ const ButtonBasic: FC<ButtonBasicProps> = ({
             root: classes.ButtonRoot,
             label: classes.ButtonInner,
           }}
+        onClick={onClick}
         >
             {text} <FaLongArrowAltRight size={20}/>
         </Button>
