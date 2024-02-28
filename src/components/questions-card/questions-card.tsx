@@ -12,7 +12,7 @@ const QuestionsCard: FC = () => {
 
     return (
         <div className={classes.QuestionsCardContainer}>
-            <Stepper active={active} onStepClick={setActive}>
+            <Stepper active={active} onStepClick={setActive} allowNextStepsSelect={false}>
                 <Stepper.Step label="First step" description="Dietary">
                     Step 1 content: <DietaryStep />
                 </Stepper.Step>
