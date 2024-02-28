@@ -89,6 +89,11 @@ body {
   color: #2F2F2F;
 }
 
+/* To prevent Mantine modal to mess up the layout */
+body[data-scroll-locked] {
+  padding: 16px !important;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

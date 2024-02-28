@@ -34,7 +34,12 @@ const Header: FC = () => {
 					</div>
 				</div>
 			</div>
-			<Modal opened={opened} onClose={close} title="Authentication" centered>
+			<Modal 
+			opened={opened} 
+			onClose={close} 
+			title="Authentication" 
+			centered
+			>
 				<Login />
 			</Modal>
 		</>
