@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
 import { createClient } from '@/utils/supabase/component'
 
-export default function LoginPage() {
+const Login: FC = () => {
   const router = useRouter()
   const supabase = createClient()
 
@@ -48,3 +48,5 @@ export default function LoginPage() {
     </main>
   )
 }
+
+export default Login
