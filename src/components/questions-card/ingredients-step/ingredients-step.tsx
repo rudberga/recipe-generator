@@ -1,12 +1,12 @@
-import { FC, useState } from "react"
+import { FC, SetStateAction, useState } from "react"
 import classes from './ingredients-step.module.scss'
 import { Badge, Group, MultiSelect, Pill, PillGroup } from "@mantine/core"
 
 const IngredientsStep: FC = () => {
-    const [selectedValues, setSelectedValues] = useState([]);
+    const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
     // Handler for changing selection
-    const handleSelectChange = (selected) => {
+    const handleSelectChange = (selected: string[]) => {
         setSelectedValues(selected);
     }
 
