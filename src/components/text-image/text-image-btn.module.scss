@@ -9,6 +9,10 @@
 	margin: 0 auto;
   	max-width: 1150px;
 	font-family: 'Poppins';
+
+	@include phone {
+		flex-direction: column;
+	}
 }
 
 .Text {
@@ -25,6 +29,10 @@
 		p:nth-child(2) {
 			color: #ffb800;
 		}
+
+		@include phone {
+			font-size: 46px;
+		}
 	}
 
 	.SmallText {
@@ -33,6 +41,10 @@
 		font-weight: 200;
 		font-size: 16px;
 		line-height: 1.75;
+
+		@include phone {
+			font-size: 14px;
+		}
 	}
 }
 
@@ -48,6 +60,16 @@
 			border-top: 1px solid black;
 			padding-left: 5px;
 			padding-top: 5px;
+
+			@include tablet {
+				display: none;
+			}
+
+			@include phone {
+				height: 225px;
+				width: 150px;
+				display: none;
+			}
 		}
 	}
 
@@ -60,6 +82,12 @@
 			border-bottom: 1px solid black;
 			padding-right: 5px;
 			padding-bottom: 5px;
+
+			@include phone {
+				height: 225px;
+				width: 150px;
+				display: none;
+			}
 		}
 	}
 }
