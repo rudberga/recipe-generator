@@ -1,7 +1,9 @@
 import { FC, useState } from "react"
+import { Button, Group, Stepper } from "@mantine/core";
 import classes from './questions-card.module.scss'
 import IngredientsStep from "./ingredients-step/ingredients-step"
-import { Button, Group, Stepper } from "@mantine/core";
+import DietaryStep from "./dietary-step/dietary-step";
+import PreferencesStep from "./preferences-step/preferences-step";
 
 const QuestionsCard: FC = () => {
     const [active, setActive] = useState(0);
@@ -12,16 +14,16 @@ const QuestionsCard: FC = () => {
         <div className={classes.QuestionsCardContainer}>
             <Stepper active={active} onStepClick={setActive}>
                 <Stepper.Step label="First step" description="Dietary">
-                    Step 1 content: Dietary
+                    Step 1 content: <DietaryStep />
                 </Stepper.Step>
                 <Stepper.Step label="Second step" description="Preferences">
-                    Step 2 content: Preferences
+                    Step 2 content: <PreferencesStep />
                 </Stepper.Step>
                 <Stepper.Step label="Final step" description="Ingredients">
                     Step 3 content: <IngredientsStep />
                 </Stepper.Step>
                 <Stepper.Completed>
-                    Completed, click back button to get to previous step
+                    LOADER HERE THEN SWITCH TO RESULT PAGE COMPONENT
                 </Stepper.Completed>
             </Stepper>
 
