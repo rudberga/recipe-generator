@@ -5,6 +5,7 @@ import DynamicBackground from '@/components/dynamic-background/dynamic-backgroun
 import Header from '@/components/header/header'
 import TextImageBtnSection from '@/components/text-image/text-image-btn'
 import { useState } from 'react'
+import QuestionsCard from '@/components/questions-card/questions-card'
 
 export default function Home() {
 	const [showQuestionsCard, setShowQuestionsCard] = useState(false)
@@ -28,7 +29,7 @@ export default function Home() {
 					<TextImageBtnSection handleShowQuestionsBtnClick={handleShowQuestionsBtnClick}/>
 				}
 				{showQuestionsCard && 
-					<div>QUESTIONS CARD RENDERED</div>
+					<QuestionsCard />
 				}
 			</main>
 		</>
