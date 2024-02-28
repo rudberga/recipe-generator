@@ -14,13 +14,13 @@ const QuestionsCard: FC = () => {
         <div className={classes.QuestionsCardContainer}>
             <Stepper active={active} onStepClick={setActive} allowNextStepsSelect={false}>
                 <Stepper.Step label="First step" description="Dietary">
-                    Step 1 content: <DietaryStep />
+                    <DietaryStep />
                 </Stepper.Step>
                 <Stepper.Step label="Second step" description="Preferences">
-                    Step 2 content: <PreferencesStep />
+                    <PreferencesStep />
                 </Stepper.Step>
                 <Stepper.Step label="Final step" description="Ingredients">
-                    Step 3 content: <IngredientsStep />
+                    <IngredientsStep />
                 </Stepper.Step>
                 <Stepper.Completed>
                     LOADER HERE THEN SWITCH TO RESULT PAGE COMPONENT
