@@ -82,11 +82,14 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
-  padding: 16px;
+  /* overflow-x: hidden; */
   height: 100%;
   font-family: 'Poppins', sans-serif;
   color: #2F2F2F;
+}
+
+body {
+  padding: 16px;
 }
 
 /* To prevent Mantine modal to mess up the layout */
