@@ -21,16 +21,19 @@ const TextImageBtnSection: FC<TextImageBtnSectionProps> = ({
 				</div>
 				<div className={classes.SmallText}>
 					<p>
-						Unleash your culinary creativity with our personalized recipe generator. 
+						Unleash your culinary creativity with our personalized recipe
+						generator.
 						{/* <br /> */}
-						Let us tailor your cooking experience based on your
-						preferences. 
+						Let us tailor your cooking experience based on your preferences.
 						{/* <br /> */}
 						Follow the simple steps below :
 					</p>
 				</div>
 				<div className={classes.StartButtonContainer}>
-					<ButtonBasic text="Let's start! " onClick={handleShowQuestionsBtnClick}/>
+					<ButtonBasic
+						text="Let's start! "
+						onClick={handleShowQuestionsBtnClick}
+					/>
 				</div>
 			</div>
 			<div className={classes.ImagesWrapper}>
@@ -38,16 +41,16 @@ const TextImageBtnSection: FC<TextImageBtnSectionProps> = ({
 					<Image
 						alt='placeholder'
 						src='/placeholder-food2.jpeg'
-						height={375}
-						width={250}
+						height={350}
+						width={220}
 					></Image>
 				</div>
 				<div>
 					<Image
 						alt='placeholder'
 						src='/placeholder-food.jpg'
-						height={375}
-						width={250}
+						height={350}
+						width={220}
 					></Image>
 				</div>
 			</div>

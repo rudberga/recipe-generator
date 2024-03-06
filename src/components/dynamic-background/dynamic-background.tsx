@@ -1,4 +1,3 @@
-// DynamicBackground.tsx
 import React, { FC } from 'react'
 import classes from './dynamic-background.module.scss'
 
