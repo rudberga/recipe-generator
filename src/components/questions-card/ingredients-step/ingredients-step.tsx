@@ -1,6 +1,7 @@
 import { FC, SetStateAction, useState } from "react"
 import classes from './ingredients-step.module.scss'
 import { Badge, Group, MultiSelect, Pill, PillGroup } from "@mantine/core"
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const IngredientsStep: FC = () => {
     const [selectedValues, setSelectedValues] = useState<string[]>([]);
@@ -23,7 +24,7 @@ const IngredientsStep: FC = () => {
                 <p>Ingredienser</p>
                 <p>Välj dina ingredienser nedanför så sköter vi resten! :)</p>
             </div>
-            <div>
+            <div className={classes.SelectPillsContainer}>
                 <div>
                     <MultiSelect
                         // label="Your favorite libraries"
@@ -33,8 +34,14 @@ const IngredientsStep: FC = () => {
                         onChange={handleSelectChange}
                         nothingFoundMessage="Oops, vi hittade inget..."
                         searchable
-                        classNames={{ pill: classes.SearchIngredientsPill }}
+                        rightSection={<FaMagnifyingGlass />}
+                        classNames={{
+                            input: classes.SearchIngredientsInput,
+                            pill: classes.SearchIngredientsPill,
+                        }}
                     />
+                </div>
+                <div>
                     <PillGroup>
                         {selectedValues.map((value) => (
                             <Pill
@@ -49,8 +56,8 @@ const IngredientsStep: FC = () => {
                         ))}
                     </PillGroup>
                 </div>
-                <div>SUGGESTIONS DOWN HERE</div>
             </div>
+            <div>SUGGESTIONS DOWN HERE</div>
         </div>
     )
 }

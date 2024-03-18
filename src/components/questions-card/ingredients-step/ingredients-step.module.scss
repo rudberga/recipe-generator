@@ -18,6 +18,16 @@
     }
 }
 
+.SelectPillsContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.SearchIngredientsInput {
+    border-radius: 16px;
+}
+
 .SearchIngredientsPill {
     display: none;
 }
