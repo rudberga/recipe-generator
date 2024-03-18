@@ -19,14 +19,14 @@ const IngredientsStep: FC = () => {
 
     return (
         <div className={classes.IngredientsStepContainer}>
-            <div>
-                <h1>Ingredienser</h1>
-                <p>Välj dina ingredienser nedanför:</p>
+            <div className={classes.TopSection}>
+                <p>Ingredienser</p>
+                <p>Välj dina ingredienser nedanför så sköter vi resten! :)</p>
             </div>
             <div>
                 <div>
                     <MultiSelect
-                        label="Your favorite libraries"
+                        // label="Your favorite libraries"
                         placeholder="Pick value"
                         data={['Mjölk', 'Ägg', 'Smör', 'Socker']}
                         value={selectedValues}
