@@ -50,8 +50,8 @@ const QuestionsCard: FC = () => {
 				</Stepper.Step>
 				<Stepper.Step>
 					<PreferencesStep 
-						// valuesInputForm={ValuesInputForm}
-						// errors={ValuesInputForm.errors}
+						valuesInputForm={ValuesInputForm}
+						errors={ValuesInputForm.errors}
 					/>
 				</Stepper.Step>
 				<Stepper.Step>
