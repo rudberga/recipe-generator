@@ -4,6 +4,14 @@ import classes from './questions-card.module.scss'
 import IngredientsStep from './ingredients-step/ingredients-step'
 import DietaryStep from './dietary-step/dietary-step'
 import PreferencesStep from './preferences-step/preferences-step'
+import { useForm } from '@mantine/form'
+
+export interface FormValues {
+	// ingredients: string[],
+	ingredients: string[],
+	dietary: string[],
+	preferences: string[],
+}
 
 const QuestionsCard: FC = () => {
 	const [active, setActive] = useState(0)
@@ -11,6 +19,15 @@ const QuestionsCard: FC = () => {
 		setActive((current) => (current < 3 ? current + 1 : current))
 	const prevStep = () =>
 		setActive((current) => (current > 0 ? current - 1 : current))
+
+	const ValuesInputForm = useForm<FormValues>({
+		validateInputOnBlur: true,
+		initialValues: {
+			ingredients: [],
+			dietary: [],
+			preferences: [],
+		}
+	})
 
 	return (
 		<div className={classes.QuestionsCardContainer}>
@@ -23,16 +40,25 @@ const QuestionsCard: FC = () => {
 				classNames={{
 					stepIcon: classes.StepIcon,
 					separator: classes.Separator,
-				  }}
+				}}
 			>
 				<Stepper.Step>
-					<DietaryStep />
+					<DietaryStep 
+						// valuesInputForm={ValuesInputForm}
+						// errors={ValuesInputForm.errors}
+					/>
 				</Stepper.Step>
 				<Stepper.Step>
-					<PreferencesStep />
+					<PreferencesStep 
+						// valuesInputForm={ValuesInputForm}
+						// errors={ValuesInputForm.errors}
+					/>
 				</Stepper.Step>
 				<Stepper.Step>
-					<IngredientsStep />
+					<IngredientsStep 
+						valuesInputForm={ValuesInputForm}
+						errors={ValuesInputForm.errors}
+					/>
 				</Stepper.Step>
 				<Stepper.Completed>
 					LOADER HERE THEN SWITCH TO RESULT PAGE COMPONENT
