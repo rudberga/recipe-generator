@@ -18,14 +18,20 @@ const QuestionsCard: FC = () => {
 				active={active}
 				onStepClick={setActive}
 				allowNextStepsSelect={false}
+				size="xs"
+				color="yellow"
+				classNames={{
+					stepIcon: classes.StepIcon,
+					separator: classes.Separator,
+				  }}
 			>
-				<Stepper.Step label='First step' description='Dietary'>
+				<Stepper.Step>
 					<DietaryStep />
 				</Stepper.Step>
-				<Stepper.Step label='Second step' description='Preferences'>
+				<Stepper.Step>
 					<PreferencesStep />
 				</Stepper.Step>
-				<Stepper.Step label='Final step' description='Ingredients'>
+				<Stepper.Step>
 					<IngredientsStep />
 				</Stepper.Step>
 				<Stepper.Completed>
