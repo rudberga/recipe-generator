@@ -44,8 +44,8 @@ const QuestionsCard: FC = () => {
 			>
 				<Stepper.Step>
 					<DietaryStep 
-						// valuesInputForm={ValuesInputForm}
-						// errors={ValuesInputForm.errors}
+						valuesInputForm={ValuesInputForm}
+						errors={ValuesInputForm.errors}
 					/>
 				</Stepper.Step>
 				<Stepper.Step>

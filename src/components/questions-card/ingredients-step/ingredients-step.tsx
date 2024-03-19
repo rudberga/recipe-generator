@@ -1,5 +1,4 @@
 import { FC } from "react"
-// import classes from '../form-multiselect/form-multiselect.module.scss'
 import { UseFormReturnType } from "@mantine/form";
 import { FormValues } from "../questions-card";
 import FormMultiselect from "../form-multiselect/form-multiselect";
