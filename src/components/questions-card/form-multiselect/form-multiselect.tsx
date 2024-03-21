@@ -27,7 +27,7 @@ const FormMultiselect: FC<FormMultiselectProps> = ({
         valuesInputForm.setFieldValue(field, newValues);
     };
 
-    console.log("VALUEEEES:", valuesInputForm.getInputProps(field))
+    // console.log("VALUEEEES:", valuesInputForm.getInputProps(field))
 
     return (
         <div className={classes.StepContainer}>

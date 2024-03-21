@@ -7,7 +7,6 @@ import PreferencesStep from './preferences-step/preferences-step'
 import { useForm } from '@mantine/form'
 
 export interface FormValues {
-	// ingredients: string[],
 	ingredients: string[],
 	dietary: string[],
 	preferences: string[],
@@ -29,6 +28,8 @@ const QuestionsCard: FC = () => {
 		}
 	})
 
+	// TODO: REMOVE STEPPER STEPS WHEN RECIPE IS SHOWN
+
 	return (
 		<div className={classes.QuestionsCardContainer}>
 			<Stepper
@@ -43,34 +44,37 @@ const QuestionsCard: FC = () => {
 				}}
 			>
 				<Stepper.Step>
-					<DietaryStep 
+					<DietaryStep
 						valuesInputForm={ValuesInputForm}
 						errors={ValuesInputForm.errors}
 					/>
 				</Stepper.Step>
 				<Stepper.Step>
-					<PreferencesStep 
+					<PreferencesStep
 						valuesInputForm={ValuesInputForm}
 						errors={ValuesInputForm.errors}
 					/>
 				</Stepper.Step>
 				<Stepper.Step>
-					<IngredientsStep 
+					<IngredientsStep
 						valuesInputForm={ValuesInputForm}
 						errors={ValuesInputForm.errors}
 					/>
 				</Stepper.Step>
 				<Stepper.Completed>
-					LOADER HERE THEN SWITCH TO RESULT PAGE COMPONENT
+					LOADER HERE THEN SWITCH TO RESULT PAGE COMPONENT DISPLAYED HERE AS WELL.
 				</Stepper.Completed>
 			</Stepper>
-
-			<Group justify='center' mt='xl'>
-				<Button variant='default' onClick={prevStep}>
-					Back
-				</Button>
-				<Button onClick={nextStep}>Next step</Button>
-			</Group>
+			{active < 3 &&
+				<Group justify='center' mt='xl'>
+					{active !== 0 &&
+						<Button variant='default' onClick={prevStep}>
+							Back
+						</Button>
+					}
+					<Button onClick={nextStep}>Next step</Button>
+				</Group>
+			}
 		</div>
 	)
 }
