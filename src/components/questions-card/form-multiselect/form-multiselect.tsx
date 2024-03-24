@@ -44,6 +44,7 @@ const FormMultiselect: FC<FormMultiselectProps> = ({
 						data={data}
 						nothingFoundMessage={nothingFoundMessage}
 						rightSection={<FaMagnifyingGlass />}
+						searchable
 						{...valuesInputForm.getInputProps(field)}
 						classNames={{
 							input: classes.SearchInput,
