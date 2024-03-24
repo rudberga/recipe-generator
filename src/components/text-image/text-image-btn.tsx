@@ -15,25 +15,19 @@ const TextImageBtnSection: FC<TextImageBtnSectionProps> = ({
 			<div className={classes.Text}>
 				{/* Placeholder texts  */}
 				<div className={classes.LargeText}>
-					<p>Welcome to</p>
-					<p>Placeholder</p>
-					<p>Text!</p>
+					<p>Din personliga</p>
+					<p>medhjälpare</p>
+					<p>i köket!</p>
 				</div>
 				<div className={classes.SmallText}>
 					<p>
-						Unleash your culinary creativity with our personalized recipe
-						generator.
-						{/* <br /> */}
-						Let us tailor your cooking experience based on your preferences.
-						{/* <br /> */}
-						Follow the simple steps below :
+						Ta hjälp av AI och få receptidéer från vad du har tillgängligt.
+						<br />
+						Enkelt, snabbt och stressfritt.
 					</p>
 				</div>
 				<div className={classes.StartButtonContainer}>
-					<ButtonBasic
-						text="Let's start! "
-						onClick={handleShowQuestionsBtnClick}
-					/>
+					<ButtonBasic text='Testa nu ' onClick={handleShowQuestionsBtnClick} />
 				</div>
 			</div>
 			<div className={classes.ImagesWrapper}>
