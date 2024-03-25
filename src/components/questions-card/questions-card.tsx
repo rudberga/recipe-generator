@@ -19,6 +19,40 @@ const QuestionsCard: FC = () => {
 	const prevStep = () =>
 		setActive((current) => (current > 0 ? current - 1 : current))
 
+	const handleSubmit = () => {
+		const {
+			dietary,
+			preferences,
+			ingredients,
+		} = ValuesInputForm.values
+		fetch('/api/recipePrompt', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				dietary,
+				preferences,
+				ingredients,
+			}),
+		})
+			.then((response) => {
+				if (!response.ok) {
+					window.scrollTo({
+						top: 0,
+						left: 0,
+						behavior: 'smooth',
+					})
+					throw new Error('ERROR HERE')
+				}
+				return response.json()
+			})
+	}
+
+	// const handleSubmit = () => {
+	// 	const { dietary, preferences, ingredients } = ValuesInputForm.values;
+	// 	// Log the form values
+	// 	console.log("TESTING SUBMIT VALUES:", { dietary, preferences, ingredients });
+	// };
+
 	const ValuesInputForm = useForm<FormValues>({
 		validateInputOnBlur: true,
 		initialValues: {
@@ -67,12 +101,9 @@ const QuestionsCard: FC = () => {
 			</Stepper>
 			{active < 3 &&
 				<Group justify='center' mt='xl'>
-					{active !== 0 &&
-						<Button variant='default' onClick={prevStep}>
-							Back
-						</Button>
-					}
-					<Button onClick={nextStep}>Next step</Button>
+					{active > 0 && <Button variant='default' onClick={prevStep}>Back</Button>}
+					{active < 2 && <Button onClick={nextStep}>Next step</Button>}
+					{active === 2 && <Button onClick={handleSubmit}>Submit</Button>}
 				</Group>
 			}
 		</div>
