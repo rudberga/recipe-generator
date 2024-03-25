@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { Button, Group, Stepper } from '@mantine/core'
+import { Button, Group, Loader, Stepper } from '@mantine/core'
 import classes from './questions-card.module.scss'
 import IngredientsStep from './ingredients-step/ingredients-step'
 import DietaryStep from './dietary-step/dietary-step'
@@ -14,12 +14,14 @@ export interface FormValues {
 
 const QuestionsCard: FC = () => {
 	const [active, setActive] = useState(0)
+	const [isLoading, setIsLoading] = useState(false)
 	const nextStep = () =>
 		setActive((current) => (current < 3 ? current + 1 : current))
 	const prevStep = () =>
 		setActive((current) => (current > 0 ? current - 1 : current))
 
 	const handleSubmit = () => {
+		setIsLoading(true)
 		const {
 			dietary,
 			preferences,
@@ -35,6 +37,7 @@ const QuestionsCard: FC = () => {
 			}),
 		})
 			.then((response) => {
+				setIsLoading(false)
 				if (!response.ok) {
 					window.scrollTo({
 						top: 0,
@@ -46,8 +49,9 @@ const QuestionsCard: FC = () => {
 				return response.json()
 			})
 			.then((data) => {
+				setIsLoading(false)
 				console.log('Recipe generated:', data);
-			})			
+			})
 	}
 
 	const ValuesInputForm = useForm<FormValues>({
@@ -93,14 +97,23 @@ const QuestionsCard: FC = () => {
 					/>
 				</Stepper.Step>
 				<Stepper.Completed>
-					LOADER HERE THEN SWITCH TO RESULT PAGE COMPONENT DISPLAYED HERE AS WELL.
+					{isLoading &&
+						<Loader
+							size='xl' 
+							color='green'
+							classNames={{
+								root: classes.LoaderRoot,
+							}}
+						/>
+					}
+					{!isLoading && <h1>RESULTS COMPONENT HERE</h1>}
 				</Stepper.Completed>
 			</Stepper>
 			{active < 3 &&
 				<Group justify='center' mt='xl'>
 					{active > 0 && <Button variant='default' onClick={prevStep}>Back</Button>}
 					{active < 2 && <Button onClick={nextStep}>Next step</Button>}
-					{active === 2 && <Button onClick={handleSubmit}>Submit</Button>}
+					{active === 2 && <Button onClick={() => { nextStep(); handleSubmit(); }}>Submit</Button>}
 				</Group>
 			}
 		</div>
