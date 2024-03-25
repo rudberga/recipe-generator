@@ -45,13 +45,10 @@ const QuestionsCard: FC = () => {
 				}
 				return response.json()
 			})
+			.then((data) => {
+				console.log('Recipe generated:', data);
+			})			
 	}
-
-	// const handleSubmit = () => {
-	// 	const { dietary, preferences, ingredients } = ValuesInputForm.values;
-	// 	// Log the form values
-	// 	console.log("TESTING SUBMIT VALUES:", { dietary, preferences, ingredients });
-	// };
 
 	const ValuesInputForm = useForm<FormValues>({
 		validateInputOnBlur: true,
