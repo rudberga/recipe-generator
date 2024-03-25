@@ -5,6 +5,7 @@ import IngredientsStep from './ingredients-step/ingredients-step'
 import DietaryStep from './dietary-step/dietary-step'
 import PreferencesStep from './preferences-step/preferences-step'
 import { useForm } from '@mantine/form'
+import Recipe from '../recipe/recipe'
 
 export interface FormValues {
 	ingredients: string[],
@@ -15,6 +16,7 @@ export interface FormValues {
 const QuestionsCard: FC = () => {
 	const [active, setActive] = useState(0)
 	const [isLoading, setIsLoading] = useState(false)
+	const [recipeData, setRecipeData] = useState(null)
 	const nextStep = () =>
 		setActive((current) => (current < 3 ? current + 1 : current))
 	const prevStep = () =>
@@ -50,7 +52,8 @@ const QuestionsCard: FC = () => {
 			})
 			.then((data) => {
 				setIsLoading(false)
-				console.log('Recipe generated:', data);
+				console.log('Recipe generated:', data)
+				setRecipeData(data)
 			})
 	}
 
@@ -99,14 +102,14 @@ const QuestionsCard: FC = () => {
 				<Stepper.Completed>
 					{isLoading &&
 						<Loader
-							size='xl' 
+							size='xl'
 							color='green'
 							classNames={{
 								root: classes.LoaderRoot,
 							}}
 						/>
 					}
-					{!isLoading && <h1>RESULTS COMPONENT HERE</h1>}
+					{!isLoading && recipeData && <Recipe recipeData={recipeData} />}
 				</Stepper.Completed>
 			</Stepper>
 			{active < 3 &&
