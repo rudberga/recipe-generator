@@ -25,7 +25,16 @@
 }
 
 .SearchInput {
-    border-radius: 16px;
+    border-width: 1.5px;
+    border-radius: 28px;
+    height: 54px;
+    font-size: 18px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.SearchInput:focus-within {
+    border-color: #5ECE68;
 }
 
 .SearchPill {
@@ -35,4 +44,9 @@
 .PillRoot {
     background-color: green;
     color: white;
+}
+
+.SearchSection {
+    color: #B3B3B3;
+    margin: 8px;
 }

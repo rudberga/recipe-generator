@@ -131,6 +131,7 @@ const QuestionsCard: FC = () => {
 								Gå tillbaka
 							</Button>
 						}
+						<div></div>
 						{active < 2 &&
 							<Button
 								onClick={nextStep}

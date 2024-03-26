@@ -40,16 +40,17 @@ const FormMultiselect: FC<FormMultiselectProps> = ({
 			<div className={classes.SelectPillsContainer}>
 				<div>
 					<MultiSelect
-						placeholder={placeholder}
+						placeholder={"Sök här"}
 						data={data}
 						nothingFoundMessage={nothingFoundMessage}
-						rightSection={<FaMagnifyingGlass />}
+						rightSection={<FaMagnifyingGlass size={20}/>}
 						searchable
 						comboboxProps={{ transitionProps: { transition: 'pop', duration: 200 } }}
 						{...valuesInputForm.getInputProps(field)}
 						classNames={{
 							input: classes.SearchInput,
 							pill: classes.SearchPill,
+							section: classes.SearchSection,
 						}}
 					/>
 				</div>
