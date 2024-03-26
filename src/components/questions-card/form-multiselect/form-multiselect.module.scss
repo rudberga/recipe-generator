@@ -6,10 +6,9 @@
 }
 
 .TopSection {
-    padding-top: 24px;
-    padding-bottom: 16px;
+    padding: 24px 0px;
 
-    p:nth-child(1){
+    p:nth-child(1) {
         font-size: 48px;
         font-weight: 700;
 
@@ -19,7 +18,7 @@
         }
     }
 
-    p:nth-child(2){
+    p:nth-child(2) {
         font-size: 16px;
         color: #636363;
 
@@ -53,12 +52,19 @@
     display: none;
 }
 
-.PillRoot {
-    background-color: green;
-    color: white;
-}
-
 .SearchSection {
     color: #B3B3B3;
     margin: 8px;
+}
+
+.PillContainer {
+    padding-top: 16px;
+}
+
+.PillRoot {
+    background-color: transparent;
+    color: #2F2F2F;
+    font-size: 14px;
+    font-weight: 600;
+    border: 0.5px solid #B3B3B3;
 }

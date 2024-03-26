@@ -54,12 +54,12 @@ const FormMultiselect: FC<FormMultiselectProps> = ({
 						}}
 					/>
 				</div>
-				<div>
+				<div className={classes.PillContainer}>
 					<PillGroup>
 						{valuesInputForm.values[field].map((value) => (
 							<Pill
 								key={value}
-								size='md'
+								size='xl'
 								withRemoveButton
 								onRemove={() => handleRemoveClick(value)}
 								classNames={{ root: classes.PillRoot }}

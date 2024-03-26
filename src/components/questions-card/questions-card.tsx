@@ -76,8 +76,9 @@ const QuestionsCard: FC = () => {
 				onStepClick={setActive}
 				allowNextStepsSelect={false}
 				size="xs"
-				color="yellow"
+				color="#FFB800"
 				classNames={{
+					// steps: classes.Steps,
 					stepIcon: classes.StepIcon,
 					separator: classes.Separator,
 				}}

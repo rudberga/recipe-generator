@@ -15,15 +15,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { dietary, preferences, ingredients } = req.body;
     // const prompt = `Create a recipe that includes ${ingredients.join(', ')} for someone who prefers ${preferences.join(', ')} and follows a ${dietary.join(', ')} diet.`;
 
-    // const prompt = `Skapa ett recept som inkluderar ${ingredients.join(', ')}. Personen föredrar ${preferences.join(', ')} och följer en ${dietary.join(', ')} kost. Notera att inte alla ingredienser behöver användas, men se till att använda tillräckligt för att skapa ett realistiskt och gott recept. Inkludera en notering om ingredienser som inte ingår, som salt, peppar och olja, bör tilläggas efter eget omdöme.`;
+    const prompt = `Please provide a recipe format with the following sections clearly marked: [TITLE], [INGREDIENTS], [INSTRUCTIONS]. The recipe should create a balanced meal using available ingredients, particularly focusing on using both carbohydrates and proteins if they are listed: ${ingredients.join(', ')}. It should cater to the preferences ${preferences.join(', ')} and dietary restrictions ${dietary.join(', ')} of a Swedish individual. Ensure the meal is realistic and suitable, avoiding impractical combinations like a single ingredient dish when more diverse options are possible. The recipe should be returned in Swedish, keeping section titles in English.`;
 
-    const prompt = 'Answer with text "TEST" and nothing else'
+    // const prompt = 'Answer with text "TEST" and nothing else'
 
     try {
         const completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: "You are a creative recipe creator/chef." },
+                { role: "system", content: "You are a recipe creator/chef. Always give realistic recipes. Nothing weird." },
                 { role: "user", content: prompt }
             ],
         });
