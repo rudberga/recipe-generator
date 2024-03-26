@@ -26,13 +26,16 @@ export default function Home() {
 			<main>
 				<DynamicBackground />
 				<Header />
-				{!showQuestionsCard && 
-					<TextImageBtnSection handleShowQuestionsBtnClick={handleShowQuestionsBtnClick}/>
+				{!showQuestionsCard && (
+					<>
+						<TextImageBtnSection handleShowQuestionsBtnClick={handleShowQuestionsBtnClick} />
+						<Footer />
+					</>
+				)
 				}
-				{showQuestionsCard && 
+				{showQuestionsCard &&
 					<QuestionsCard />
 				}
-				<Footer />
 			</main>
 		</>
 	)
