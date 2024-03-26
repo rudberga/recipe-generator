@@ -45,6 +45,7 @@ const FormMultiselect: FC<FormMultiselectProps> = ({
 						nothingFoundMessage={nothingFoundMessage}
 						rightSection={<FaMagnifyingGlass />}
 						searchable
+						comboboxProps={{ transitionProps: { transition: 'pop', duration: 200 } }}
 						{...valuesInputForm.getInputProps(field)}
 						classNames={{
 							input: classes.SearchInput,

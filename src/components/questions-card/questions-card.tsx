@@ -6,6 +6,7 @@ import DietaryStep from './dietary-step/dietary-step'
 import PreferencesStep from './preferences-step/preferences-step'
 import { useForm } from '@mantine/form'
 import Recipe from '../recipe/recipe'
+import { FaLongArrowAltLeft } from 'react-icons/fa'
 
 export interface FormValues {
 	ingredients: string[],
@@ -113,11 +114,44 @@ const QuestionsCard: FC = () => {
 				</Stepper.Completed>
 			</Stepper>
 			{active < 3 &&
-				<Group justify='center' mt='xl'>
-					{active > 0 && <Button variant='default' onClick={prevStep}>Back</Button>}
-					{active < 2 && <Button onClick={nextStep}>Next step</Button>}
-					{active === 2 && <Button onClick={() => { nextStep(); handleSubmit(); }}>Submit</Button>}
-				</Group>
+				// <div className={classes.ButtonsContainer}>
+					<Group justify='space-between' mt='xl'>
+						{active > 0 &&
+							<Button
+								onClick={prevStep}
+								variant='outline'
+								color="#2F2F2F"
+								size="md"
+								radius="md"
+								leftSection={<FaLongArrowAltLeft />}
+							// classNames={{
+							// 	root: classes.ButtonRoot,
+							// }}
+							>
+								Gå tillbaka
+							</Button>
+						}
+						{active < 2 &&
+							<Button
+								onClick={nextStep}
+								variant="filled"
+								color="#5ECE68"
+								size="md"
+								radius="md">
+								Nästa
+							</Button>
+						}
+						{active === 2 &&
+							<Button
+								onClick={() => { nextStep(); handleSubmit(); }} variant="filled"
+								color="#5ECE68"
+								size="md"
+								radius="md">
+								Slutför
+							</Button>
+						}
+					</Group>
+				// </div>
 			}
 		</div>
 	)

@@ -19,8 +19,9 @@ const ButtonBasic: FC<ButtonBasicProps> = ({
             label: classes.ButtonInner,
           }}
         onClick={onClick}
+        rightSection={<FaLongArrowAltRight size={20}/>}
         >
-            {text} <FaLongArrowAltRight size={20}/>
+            {text}
         </Button>
     )
 }
