@@ -1,3 +1,5 @@
+@import 'src/styles/_mixins';
+
 .QuestionsCardContainer {
 	font-family: 'Poppins';
 	display: flex;
@@ -13,6 +15,10 @@
 	border: 1px solid lightgray;
 	border-radius: 16px;
 	background-color: white;
+
+	@include phone {
+		padding: 24px;
+	}
 }
 
 .StepIcon {
