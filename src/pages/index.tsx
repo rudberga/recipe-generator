@@ -27,6 +27,11 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
+				<div style={{ display: 'none' }}>
+					<img src='/yellow-blob2.svg' alt='preload' />
+					<img src='/green-blob2.svg' alt='preload' />
+					<img src='/green-blob3.svg' alt='preload' />
+				</div>
 				<DynamicBackground
 					showQuestionsCard={showQuestionsCard}
 					showFinalStep={isFinalStep}
