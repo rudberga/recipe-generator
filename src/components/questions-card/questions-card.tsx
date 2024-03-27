@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Button, Group, Loader, Stepper } from '@mantine/core'
 import classes from './questions-card.module.scss'
 import IngredientsStep from './ingredients-step/ingredients-step'
@@ -15,7 +15,13 @@ export interface FormValues {
 	preferences: string[],
 }
 
-const QuestionsCard: FC = () => {
+interface QuestionsCardProps {
+	onStepChange: (activeStep: number) => void;
+}
+
+const QuestionsCard: FC<QuestionsCardProps> = ({
+	onStepChange
+}) => {
 	const [active, setActive] = useState(0)
 	const [isLoading, setIsLoading] = useState(false)
 	const [recipeData, setRecipeData] = useState(null)
@@ -23,6 +29,13 @@ const QuestionsCard: FC = () => {
 		setActive((current) => (current < 3 ? current + 1 : current))
 	const prevStep = () =>
 		setActive((current) => (current > 0 ? current - 1 : current))
+
+	useEffect(() => {
+		if (!isLoading) {
+			onStepChange(active);
+		}
+	}, [active, isLoading]);
+
 
 	const handleSubmit = () => {
 		setIsLoading(true)
@@ -120,43 +133,43 @@ const QuestionsCard: FC = () => {
 			</Stepper>
 			{active < 3 &&
 				// <div className={classes.ButtonsContainer}>
-					<Group justify='space-between' mt='xl'>
-						{active > 0 &&
-							<Button
-								onClick={prevStep}
-								variant='outline'
-								color="#2F2F2F"
-								size="md"
-								radius="md"
-								leftSection={<FaLongArrowAltLeft />}
-							// classNames={{
-							// 	root: classes.ButtonRoot,
-							// }}
-							>
-								Gå tillbaka
-							</Button>
-						}
-						<div></div>
-						{active < 2 &&
-							<Button
-								onClick={nextStep}
-								variant="filled"
-								color="#5ECE68"
-								size="md"
-								radius="md">
-								Nästa
-							</Button>
-						}
-						{active === 2 &&
-							<Button
-								onClick={() => { nextStep(); handleSubmit(); }} variant="filled"
-								color="#5ECE68"
-								size="md"
-								radius="md">
-								Slutför
-							</Button>
-						}
-					</Group>
+				<Group justify='space-between' mt='xl'>
+					{active > 0 &&
+						<Button
+							onClick={prevStep}
+							variant='outline'
+							color="#2F2F2F"
+							size="md"
+							radius="md"
+							leftSection={<FaLongArrowAltLeft />}
+						// classNames={{
+						// 	root: classes.ButtonRoot,
+						// }}
+						>
+							Gå tillbaka
+						</Button>
+					}
+					<div></div>
+					{active < 2 &&
+						<Button
+							onClick={nextStep}
+							variant="filled"
+							color="#5ECE68"
+							size="md"
+							radius="md">
+							Nästa
+						</Button>
+					}
+					{active === 2 &&
+						<Button
+							onClick={() => { nextStep(); handleSubmit(); }} variant="filled"
+							color="#5ECE68"
+							size="md"
+							radius="md">
+							Slutför
+						</Button>
+					}
+				</Group>
 				// </div>
 			}
 		</div>

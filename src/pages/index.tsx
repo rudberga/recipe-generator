@@ -8,10 +8,15 @@ import QuestionsCard from '@/components/questions-card/questions-card'
 
 export default function Home() {
 	const [showQuestionsCard, setShowQuestionsCard] = useState(false)
+	const [isFinalStep, setIsFinalStep] = useState(false);
 
 	const handleShowQuestionsBtnClick = () => {
 		setShowQuestionsCard(true)
 	}
+
+	const handleStepChange = (activeStep: number) => {
+		setIsFinalStep(activeStep === 3);
+	};
 
 	return (
 		<>
@@ -22,7 +27,10 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
-				<DynamicBackground showQuestionsCard={showQuestionsCard}/>
+				<DynamicBackground
+					showQuestionsCard={showQuestionsCard}
+					showFinalStep={isFinalStep}
+				/>
 				<Header />
 				{!showQuestionsCard && (
 					<>
@@ -32,7 +40,7 @@ export default function Home() {
 				)
 				}
 				{showQuestionsCard &&
-					<QuestionsCard />
+					<QuestionsCard onStepChange={handleStepChange} />
 				}
 			</main>
 		</>
