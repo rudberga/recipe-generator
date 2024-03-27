@@ -22,7 +22,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
-				<DynamicBackground />
+				<DynamicBackground showQuestionsCard={showQuestionsCard}/>
 				<Header />
 				{!showQuestionsCard && (
 					<>
