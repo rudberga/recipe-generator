@@ -7,6 +7,7 @@ import PreferencesStep from './preferences-step/preferences-step'
 import { useForm } from '@mantine/form'
 import Recipe from '../recipe/recipe'
 import { FaLongArrowAltLeft } from 'react-icons/fa'
+import classNames from 'classnames'
 
 export interface FormValues {
 	ingredients: string[],
@@ -67,10 +68,13 @@ const QuestionsCard: FC = () => {
 		}
 	})
 
-	// TODO: REMOVE STEPPER STEPS WHEN RECIPE IS SHOWN
+	const QuestionsCardContainerClasses = classNames({
+		[classes.QuestionsCardContainer]: true,
+		[classes.ResultStepCard]: active === 3 && !isLoading,
+	})
 
 	return (
-		<div className={classes.QuestionsCardContainer}>
+		<div className={QuestionsCardContainerClasses}>
 			<Stepper
 				active={active}
 				onStepClick={setActive}
@@ -78,7 +82,7 @@ const QuestionsCard: FC = () => {
 				size="xs"
 				color="#FFB800"
 				classNames={{
-					// steps: classes.Steps,
+					steps: active === 3 && !isLoading ? classes.Steps : '',
 					stepIcon: classes.StepIcon,
 					separator: classes.Separator,
 				}}

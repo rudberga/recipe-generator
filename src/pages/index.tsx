@@ -1,12 +1,10 @@
 import Head from 'next/head'
-// import { Inter } from 'next/font/google'
-// import styles from '@/styles/Home.module.css'
 import DynamicBackground from '@/components/dynamic-background/dynamic-background'
 import Header from '@/components/header/header'
 import TextImageBtnSection from '@/components/text-image/text-image-btn'
 import { useState } from 'react'
 import QuestionsCard from '@/components/questions-card/questions-card'
-import Footer from '@/components/footer/footer'
+// import Footer from '@/components/footer/footer'
 
 export default function Home() {
 	const [showQuestionsCard, setShowQuestionsCard] = useState(false)
@@ -29,7 +27,7 @@ export default function Home() {
 				{!showQuestionsCard && (
 					<>
 						<TextImageBtnSection handleShowQuestionsBtnClick={handleShowQuestionsBtnClick} />
-						<Footer />
+						{/* <Footer /> */}
 					</>
 				)
 				}

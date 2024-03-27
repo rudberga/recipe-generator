@@ -21,9 +21,16 @@
 	}
 }
 
-// .Steps {
-// 	display: none;
-// }
+.ResultStepCard {
+	background-image: url('/green-blob2.svg'), url('/yellow-blob.svg');
+	background-repeat: no-repeat;
+	background-position: bottom left, top right;
+	background-size: contain;
+}
+
+.Steps {
+	display: none;
+}
 
 .StepIcon {
 	font-size: 16px;
