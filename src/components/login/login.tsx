@@ -29,9 +29,9 @@ const Login: FC = () => {
   return (
     <main>
       <form>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">E-mail:</label>
         <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Lösenord:</label>
         <input
           id="password"
           type="password"
@@ -39,10 +39,10 @@ const Login: FC = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="button" onClick={logIn}>
-          Log in
+          Logga in
         </button>
         <button type="button" onClick={signUp}>
-          Sign up
+          Registrera dig
         </button>
       </form>
     </main>
