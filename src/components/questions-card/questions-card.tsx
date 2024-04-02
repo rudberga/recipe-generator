@@ -34,7 +34,7 @@ const QuestionsCard: FC<QuestionsCardProps> = ({
 		if (!isLoading) {
 			onStepChange(active);
 		}
-	}, [active, isLoading]);
+	}, [active, isLoading, onStepChange]);
 
 
 	const handleSubmit = () => {
