@@ -14,7 +14,7 @@ const Header: FC = () => {
 			<div className={classes.HeaderContainer}>
 				<div className={classes.LeftSideLogo}>
 					{/* Placeholder logo */}
-					<Image alt='logo' src='./logo.svg' height={50} width={50}></Image>
+					<Image alt='logo' src='./logo.svg' height={50} width={50} />
 				</div>
 				<div className={classes.RightSideIcons}>
 					<div>
