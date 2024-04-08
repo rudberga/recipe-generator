@@ -21,14 +21,26 @@ const Recipe: FC<RecipeProps> = ({
 
     return (
         <div className={classes.RecipeContainer}>
-            <h2>Här är ditt recept</h2>
-            <h1>{sections[1]}</h1>
-            <p>Baserat på dina preferenser samt ingredienser har vi skapat ett recept till dig. Smaklig måltid!</p>
-            <h3>​​Ingredienser</h3>
-            <p>{sections[2]}</p>
-            <Button onClick={handleClick}>Laga nu</Button>
-            {showRecipeSection && <p>{sections[3]}</p>}
-            <h3>Spara detta recept till dina favoriter eller fortsätt och generera om du inte än är nöjd.</h3>
+            <div>
+                <h2>Här är ditt recept</h2>
+                <h1>{sections[1]}</h1>
+                <p>Baserat på dina preferenser samt ingredienser har vi skapat ett recept till dig. Smaklig måltid!</p>
+            </div>
+            <div>
+                <h3>​​Ingredienser</h3>
+                <p>{sections[2]}</p>
+            </div>
+            <div>
+                <Button onClick={handleClick}>Laga nu</Button>
+            </div>
+            {showRecipeSection && 
+                <div>
+                    <p>{sections[3]}</p>
+                </div>
+            }
+            <div>
+                <h3>Spara detta recept till dina favoriter eller fortsätt och generera om du inte än är nöjd.</h3>
+            </div>
             <div>
                 <Button>Spara recept</Button>
                 <Button>Skapa nytt recept</Button>

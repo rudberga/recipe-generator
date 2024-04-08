@@ -1,12 +1,5 @@
-// .RecipeContainer {
-//     background-image: url('/green-blob.svg');
-//     width: 100%;
-// 	height: 100vh;
-// 	background-position: top right;
-// 	background-repeat: no-repeat;
-// 	background-size: contain;
-// 	position: fixed;
-// 	top: 0;
-// 	right: 0;
-// 	z-index: -1;
-// }
+.RecipeContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
