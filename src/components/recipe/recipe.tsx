@@ -1,5 +1,5 @@
 import { Button } from "@mantine/core";
-import { FC } from "react";
+import { FC, useState } from "react";
 import classes from './recipe.module.scss'
 
 interface RecipeProps {
@@ -13,6 +13,12 @@ const Recipe: FC<RecipeProps> = ({
 }) => {
     const sections = recipeData.recipe.split(/\[TITLE\]|\[TITEL\]|\[INGREDIENTS\]|\[INGREDIENSER\]|\[INSTRUCTIONS\]|\[INSTRUKTIONER\]/).map(section => section.trim())
 
+    const [showRecipeSection, setShowRecipeSection] = useState(false)
+
+    const handleClick = () => {
+        setShowRecipeSection(true)
+    }
+
     return (
         <div className={classes.RecipeContainer}>
             <h2>Här är ditt recept</h2>
@@ -20,9 +26,9 @@ const Recipe: FC<RecipeProps> = ({
             <p>Baserat på dina preferenser samt ingredienser har vi skapat ett recept till dig. Smaklig måltid!</p>
             <h3>​​Ingredienser</h3>
             <p>{sections[2]}</p>
-            <Button>Laga nu</Button>
+            <Button onClick={handleClick}>Laga nu</Button>
+            {showRecipeSection && <p>{sections[3]}</p>}
             <h3>Spara detta recept till dina favoriter eller fortsätt och generera om du inte än är nöjd.</h3>
-            {/* <p>{sections[3]}</p> */}
             <div>
                 <Button>Spara recept</Button>
                 <Button>Skapa nytt recept</Button>
