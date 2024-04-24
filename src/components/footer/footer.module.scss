@@ -1,8 +1,37 @@
+@import 'src/styles/_mixins';
+
 .FooterContainer {
-    background-color: #cff0d2;
+    background-color: #ffffff;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     z-index: 999;
+    padding: 22px;
+  }
+
+  .InnerFooterWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cff0d2;
+    color: #5ECE68;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 18px;
+    border-radius: 44px;
+
+    @include phone {
+      font-size: 12px;
+    }
+  }
+
+  .SocialIcons {
+    display: flex;
+    gap: 12px;
+    color: #5ECE68;
+
+    @include phone {
+      gap: 8px;
+    }
   }
