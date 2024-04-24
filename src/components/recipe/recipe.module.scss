@@ -18,12 +18,47 @@
             padding-bottom: 18px;
             font-size: 40px;
             font-weight: 700;
+            // line-height: 46px;
         }
     }
 
     .IngredientsSection {
         h3 {
             color: #2F2F2F;
+            padding-bottom: 14px;
+        }
+
+        p {
+            padding-bottom: 24px;
+        }
+
+        div:nth-child(2) {
+            padding-bottom: 24px;
+        }
+    }
+
+    .BottomSection {
+        h3 {
+            color: #2F2F2F;
+            padding-bottom: 24px;
+        }
+
+        .ButtonsWrapper {
+            display: flex;
+            gap: 18px;
+        }
+
+        .ButtonRoot {
+            background-color: #ffffff;
+            color: #2F2F2F;
+            padding: 24px;
+            font-size: 16px;
+            border-radius: 12px;
+            border: 1px solid #636363;
+        }
+        
+        .ButtonInner {
+            padding: 24px 0px;
         }
     }
 }

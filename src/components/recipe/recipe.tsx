@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import classes from './recipe.module.scss'
 import Image from "next/image";
 import ButtonBasic from "../button/button";
+import { FaRegHeart } from "react-icons/fa6";
 
 interface RecipeProps {
     recipeData: {
@@ -50,7 +51,7 @@ const Recipe: FC<RecipeProps> = ({
                     <p>{sections[2]}</p>
                 </div>
                 <div>
-                    <ButtonBasic 
+                    <ButtonBasic
                         onClick={handleClick}
                         text="Laga nu"
                         rightSection={null}
@@ -62,12 +63,28 @@ const Recipe: FC<RecipeProps> = ({
                     <p>{sections[3]}</p>
                 </div>
             }
-            <div>
-                <h3>Spara detta recept till dina favoriter eller fortsätt och generera om du inte än är nöjd.</h3>
-            </div>
-            <div>
-                <Button>Spara recept</Button>
-                <Button>Skapa nytt recept</Button>
+            <div className={classes.BottomSection}>
+                <div>
+                    <h3>Spara detta recept till dina favoriter eller fortsätt och generera om du inte än är nöjd.</h3>
+                </div>
+                <div className={classes.ButtonsWrapper}>
+                    <div>
+                        <ButtonBasic
+                            onClick={() => { }}
+                            text="Spara recept"
+                            rightSection={<FaRegHeart size={20}/>}
+                        />
+                    </div>
+                    <div>
+                        <Button
+                            classNames={{
+                                root: classes.ButtonRoot,
+                                label: classes.ButtonInner,
+                            }}
+                        >Skapa nytt recept
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     )
