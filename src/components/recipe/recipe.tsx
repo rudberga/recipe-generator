@@ -30,7 +30,7 @@ const Recipe: FC<RecipeProps> = ({
     // Parse instructions into an array of JSX elements
     const parsedInstructions = (instructions: string): ReactNode[] => {
         return instructions.split('\n').map((instruction, index) => {
-            if (instruction.match(/^\d+\./)) { 
+            if (instruction.match(/^\d+\./)) {
                 return <div key={index} className={classes.InstructionStep}><span className={classes.StepNumber}>{instruction.split(' ')[0]}</span>{instruction.substring(instruction.indexOf(' ') + 1)}</div>;
             }
             return null;
@@ -60,13 +60,15 @@ const Recipe: FC<RecipeProps> = ({
                     <h3>​​Ingredienser</h3>
                     <p>{sections[2]}</p>
                 </div>
-                <div>
-                    <ButtonBasic
-                        onClick={handleClick}
-                        text="Laga nu"
-                        rightSection={null}
-                    />
-                </div>
+                {!showRecipeSection &&
+                    <div>
+                        <ButtonBasic
+                            onClick={handleClick}
+                            text="Laga nu"
+                            rightSection={null}
+                        />
+                    </div>
+                }
             </div>
             {showRecipeSection &&
                 <div className={classes.InstructionsSection}>
