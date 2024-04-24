@@ -1,5 +1,5 @@
 import { Button } from "@mantine/core";
-import { FC, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import classes from './recipe.module.scss'
 import Image from "next/image";
 import ButtonBasic from "../button/button";
@@ -26,6 +26,16 @@ const Recipe: FC<RecipeProps> = ({
         borderRadius: '50%',
         border: '1px solid lightgray'
     }
+
+    // Parse instructions into an array of JSX elements
+    const parsedInstructions = (instructions: string): ReactNode[] => {
+        return instructions.split('\n').map((instruction, index) => {
+            if (instruction.match(/^\d+\./)) { 
+                return <div key={index} className={classes.InstructionStep}><span className={classes.StepNumber}>{instruction.split(' ')[0]}</span>{instruction.substring(instruction.indexOf(' ') + 1)}</div>;
+            }
+            return null;
+        }).filter(Boolean); // Filter out any null values (empty lines)
+    };
 
     return (
         <div className={classes.RecipeContainer}>
@@ -59,8 +69,9 @@ const Recipe: FC<RecipeProps> = ({
                 </div>
             </div>
             {showRecipeSection &&
-                <div>
-                    <p>{sections[3]}</p>
+                <div className={classes.InstructionsSection}>
+                    <h3>Instruktioner:</h3>
+                    {parsedInstructions(sections[3])}
                 </div>
             }
             <div className={classes.BottomSection}>
@@ -72,7 +83,7 @@ const Recipe: FC<RecipeProps> = ({
                         <ButtonBasic
                             onClick={() => { }}
                             text="Spara recept"
-                            rightSection={<FaRegHeart size={20}/>}
+                            rightSection={<FaRegHeart size={20} />}
                         />
                     </div>
                     <div>
