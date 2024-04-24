@@ -37,7 +37,7 @@ const TextImageBtnSection: FC<TextImageBtnSectionProps> = ({
 						src='/placeholder-food2.jpeg'
 						height={350}
 						width={220}
-					></Image>
+					/>
 				</div>
 				<div>
 					<Image
@@ -45,7 +45,7 @@ const TextImageBtnSection: FC<TextImageBtnSectionProps> = ({
 						src='/placeholder-food.jpg'
 						height={350}
 						width={220}
-					></Image>
+					/>
 				</div>
 			</div>
 		</div>

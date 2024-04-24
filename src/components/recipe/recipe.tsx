@@ -1,6 +1,7 @@
 import { Button } from "@mantine/core";
 import { FC, useState } from "react";
 import classes from './recipe.module.scss'
+import Image from "next/image";
 
 interface RecipeProps {
     recipeData: {
@@ -19,12 +20,28 @@ const Recipe: FC<RecipeProps> = ({
         setShowRecipeSection(true)
     }
 
+    const imageStyle = {
+        borderRadius: '50%',
+        border: '1px solid lightgray'
+    }
+
     return (
         <div className={classes.RecipeContainer}>
-            <div>
-                <h2>Här är ditt recept</h2>
-                <h1>{sections[1]}</h1>
-                <p>Baserat på dina preferenser samt ingredienser har vi skapat ett recept till dig. Smaklig måltid!</p>
+            <div className={classes.TopSection}>
+                <div>
+                    <h2>Här är ditt recept</h2>
+                    <h1>{sections[1]}</h1>
+                    <p>Baserat på dina preferenser samt ingredienser har vi skapat ett recept till dig. Smaklig måltid!</p>
+                </div>
+                <div>
+                    <Image
+                        alt='cookingillustration'
+                        src='/cookingIllustration.png'
+                        height={300}
+                        width={300}
+                        style={imageStyle}
+                    />
+                </div>
             </div>
             <div>
                 <h3>​​Ingredienser</h3>
@@ -33,7 +50,7 @@ const Recipe: FC<RecipeProps> = ({
             <div>
                 <Button onClick={handleClick}>Laga nu</Button>
             </div>
-            {showRecipeSection && 
+            {showRecipeSection &&
                 <div>
                     <p>{sections[3]}</p>
                 </div>
