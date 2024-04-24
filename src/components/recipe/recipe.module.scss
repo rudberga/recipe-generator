@@ -1,3 +1,5 @@
+@import 'src/styles/_mixins';
+
 .RecipeContainer {
     display: flex;
     flex-direction: column;
@@ -9,6 +11,16 @@
         align-items: center;
         gap: 24px;
 
+        @include phone {
+            align-items: flex-start;
+            gap: unset;
+            // flex-direction: column;
+
+            div:nth-child(2) {
+                display: none;
+            }
+        }
+
         p:nth-child(1) {
             font-weight: 600;
         }
@@ -19,6 +31,12 @@
             font-size: 40px;
             font-weight: 700;
             // line-height: 46px;
+
+            @include phone {
+                font-size: 34px;
+                line-height: 42px;
+                padding-top: 18px;
+            }
         }
     }
 
@@ -26,6 +44,10 @@
         h3 {
             color: #2F2F2F;
             padding-bottom: 14px;
+
+            @include phone {
+                padding-top: 14px;
+            }
         }
 
         p {
@@ -46,6 +68,10 @@
         .ButtonsWrapper {
             display: flex;
             gap: 18px;
+
+            @include phone {
+                flex-direction: column;
+            }
         }
 
         .ButtonRoot {
