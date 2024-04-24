@@ -27,11 +27,13 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
+				{/* Preload of images to improve UX */}
 				<div style={{ display: 'none' }}>
 					<img src='/yellow-blob.svg' alt='preload' />
 					<img src='/yellow-blob2.svg' alt='preload' />
 					<img src='/green-blob2.svg' alt='preload' />
 					<img src='/green-blob3.svg' alt='preload' />
+					<img src='/cookingIllustration.png' alt='preload' />
 				</div>
 				<DynamicBackground
 					showQuestionsCard={showQuestionsCard}
