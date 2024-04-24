@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { FC } from 'react'
 import classes from './text-image-btn.module.scss'
 import ButtonBasic from '../button/button'
+import { FaLongArrowAltRight } from 'react-icons/fa'
 
 interface TextImageBtnSectionProps {
 	handleShowQuestionsBtnClick: () => void
@@ -27,7 +28,11 @@ const TextImageBtnSection: FC<TextImageBtnSectionProps> = ({
 					</p>
 				</div>
 				<div className={classes.StartButtonContainer}>
-					<ButtonBasic text='Testa nu ' onClick={handleShowQuestionsBtnClick} />
+					<ButtonBasic 
+					text='Testa nu ' 
+					onClick={handleShowQuestionsBtnClick}
+					rightSection={<FaLongArrowAltRight size={20}/>} 
+					/>
 				</div>
 			</div>
 			<div className={classes.ImagesWrapper}>

@@ -2,6 +2,7 @@ import { Button } from "@mantine/core";
 import { FC, useState } from "react";
 import classes from './recipe.module.scss'
 import Image from "next/image";
+import ButtonBasic from "../button/button";
 
 interface RecipeProps {
     recipeData: {
@@ -29,8 +30,8 @@ const Recipe: FC<RecipeProps> = ({
         <div className={classes.RecipeContainer}>
             <div className={classes.TopSection}>
                 <div>
-                    <h2>Här är ditt recept</h2>
-                    <h1>{sections[1]}</h1>
+                    <p>Här är ditt recept</p>
+                    <p>{sections[1]}</p>
                     <p>Baserat på dina preferenser samt ingredienser har vi skapat ett recept till dig. Smaklig måltid!</p>
                 </div>
                 <div>
@@ -43,12 +44,18 @@ const Recipe: FC<RecipeProps> = ({
                     />
                 </div>
             </div>
-            <div>
-                <h3>​​Ingredienser</h3>
-                <p>{sections[2]}</p>
-            </div>
-            <div>
-                <Button onClick={handleClick}>Laga nu</Button>
+            <div className={classes.IngredientsSection}>
+                <div>
+                    <h3>​​Ingredienser</h3>
+                    <p>{sections[2]}</p>
+                </div>
+                <div>
+                    <ButtonBasic 
+                        onClick={handleClick}
+                        text="Laga nu"
+                        rightSection={null}
+                    />
+                </div>
             </div>
             {showRecipeSection &&
                 <div>

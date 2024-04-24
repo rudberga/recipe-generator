@@ -1,16 +1,17 @@
 import { Button } from "@mantine/core"
-import { FC } from "react"
-import { FaLongArrowAltRight } from "react-icons/fa"
+import { FC, ReactNode } from "react"
 import classes from './button.module.scss'
 
 interface ButtonBasicProps {
     text: string,
     onClick: () => void,
+    rightSection: ReactNode,
 }
 
 const ButtonBasic: FC<ButtonBasicProps> = ({
     text,
     onClick,
+    rightSection,
 }) => {
     return (
         <Button
@@ -19,7 +20,7 @@ const ButtonBasic: FC<ButtonBasicProps> = ({
             label: classes.ButtonInner,
           }}
         onClick={onClick}
-        rightSection={<FaLongArrowAltRight size={20}/>}
+        rightSection={rightSection}
         >
             {text}
         </Button>
