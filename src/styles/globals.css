@@ -98,4 +98,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
+  padding-left: 16px;
+  padding-right: 16px;
 }
