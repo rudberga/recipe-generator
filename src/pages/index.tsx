@@ -2,21 +2,47 @@ import Head from 'next/head'
 import DynamicBackground from '@/components/dynamic-background/dynamic-background'
 import Header from '@/components/header/header'
 import TextImageBtnSection from '@/components/text-image/text-image-btn'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import QuestionsCard from '@/components/questions-card/questions-card'
 import Footer from '@/components/footer/footer'
+import { supabase } from '@/utils/supabase/client'
+import { User } from '@supabase/supabase-js'
+import UserProfile from '@/components/user-profile/user-profile'
 
 export default function Home() {
 	const [showQuestionsCard, setShowQuestionsCard] = useState(false)
-	const [isFinalStep, setIsFinalStep] = useState(false);
+	const [isFinalStep, setIsFinalStep] = useState(false)
+	const [user, setUser] = useState<User | null>(null)
 
 	const handleShowQuestionsBtnClick = () => {
 		setShowQuestionsCard(true)
 	}
 
 	const handleStepChange = (activeStep: number) => {
-		setIsFinalStep(activeStep === 3);
-	};
+		setIsFinalStep(activeStep === 3)
+	}
+
+	useEffect(() => {
+        // Set up an effect for handling authentication state changes
+        const authListener = supabase.auth.onAuthStateChange(async (event, session) => {
+            setUser(session?.user ?? null)
+        });
+
+        // Check the current session and set the user initially
+        (async () => {
+            const { data, error } = await supabase.auth.getSession()
+            if (data && data.session) {
+                setUser(data.session.user)
+            } else {
+                console.error('Error fetching session:', error)
+            }
+        })()
+
+        // Clean up the auth listener when the component unmounts
+        return () => {
+            authListener.data?.subscription.unsubscribe()
+        };
+    }, []);
 
 	return (
 		<>
@@ -40,7 +66,7 @@ export default function Home() {
 					showFinalStep={isFinalStep}
 				/>
 				<Header />
-				{!showQuestionsCard && (
+				{!showQuestionsCard && !user && (
 					<>
 						<TextImageBtnSection handleShowQuestionsBtnClick={handleShowQuestionsBtnClick} />
 						<Footer />
@@ -50,6 +76,8 @@ export default function Home() {
 				{showQuestionsCard &&
 					<QuestionsCard onStepChange={handleStepChange} />
 				}
+
+				{user && !showQuestionsCard && <UserProfile user={user} />}
 			</main>
 		</>
 	)
