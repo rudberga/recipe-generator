@@ -17,7 +17,8 @@ const Header: FC = () => {
 					<Image alt='logo' src='./logo.svg' height={50} width={50} />
 				</div>
 				<div className={classes.RightSideIcons}>
-					<div>
+					{/* Commented out until working on them */}
+					{/* <div>
 						<Button
 							classNames={{root: classes.FavoriteModalBtn}}
 						>
@@ -31,7 +32,7 @@ const Header: FC = () => {
 						>
 							<FaRegUser size={24} />
 							</Button>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<Modal 
