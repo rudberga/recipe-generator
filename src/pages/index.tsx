@@ -13,6 +13,7 @@ export default function Home() {
 	const [showQuestionsCard, setShowQuestionsCard] = useState(false)
 	const [isFinalStep, setIsFinalStep] = useState(false)
 	const [user, setUser] = useState<User | null>(null)
+	const [imagesLoaded, setImagesLoaded] = useState(false)
 
 	const handleShowQuestionsBtnClick = () => {
 		setShowQuestionsCard(true)
@@ -44,6 +45,24 @@ export default function Home() {
         };
     }, []);
 
+	useEffect(() => {
+        const loadImages = async () => {
+            const imageUrls = ['/yellow-blob.svg', '/yellow-blob2.svg', '/green-blob2.svg', '/green-blob3.svg', '/cookingIllustration.png'];
+            const images = imageUrls.map(url => {
+                const img = new Image();
+                img.src = url;
+                return new Promise((resolve, reject) => {
+                    img.onload = resolve;
+                    img.onerror = reject;
+                });
+            });
+            await Promise.all(images);
+            setImagesLoaded(true);
+        };
+
+        loadImages();
+    }, []);
+
 	return (
 		<>
 			<Head>
@@ -66,7 +85,7 @@ export default function Home() {
 					showFinalStep={isFinalStep}
 				/>
 				<Header />
-				{!showQuestionsCard && !user && (
+				{!showQuestionsCard && !user && imagesLoaded && (
 					<>
 						<TextImageBtnSection handleShowQuestionsBtnClick={handleShowQuestionsBtnClick} />
 						<Footer />
