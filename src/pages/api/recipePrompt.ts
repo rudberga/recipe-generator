@@ -13,11 +13,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const { dietary, preferences, ingredients } = req.body;
-    // const prompt = `Create a recipe that includes ${ingredients.join(', ')} for someone who prefers ${preferences.join(', ')} and follows a ${dietary.join(', ')} diet.`;
 
-    const prompt = `Please provide a recipe format with the following sections clearly marked: [TITLE], [INGREDIENTS], [INSTRUCTIONS]. The recipe should create a balanced meal using available ingredients, particularly focusing on using both carbohydrates and proteins if they are listed: ${ingredients.join(', ')}. It should cater to the preferences ${preferences.join(', ')} and dietary restrictions ${dietary.join(', ')} of a Swedish individual. Ensure the meal is realistic and suitable, avoiding impractical combinations like a single ingredient dish when more diverse options are possible. The recipe should be returned in Swedish, keeping section titles in English.`;
-
-    // const prompt = 'Answer with text "TEST" and nothing else'
+    const prompt = `Skapa ett recept som inkluderar följande ingredienser: ${ingredients.join(', ') || "valfria ingredienser"}. Rätten ska passa de önskemål och kostrestriktioner som anges: ${preferences.join(', ') || "inget specifikt önskemål"}, ${dietary.join(', ') || "inge specifik diet"}. Receptet ska ha tydliga avsnitt för [TITEL], [INGREDIENSER], och [INSTRUKTIONER], där [TITEL] ska vara kreativ och aptitretande. Allt ska presenteras på svenska med avsnittstitlar på engelska.`;
 
     try {
         const completion = await openai.chat.completions.create({
