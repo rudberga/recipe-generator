@@ -9,10 +9,14 @@ import Login from '../login/login'
 const Header: FC = () => {
 	const [opened, { open, close }] = useDisclosure(false);
 
+	const handleLogoClick = () => {
+		window.location.reload();
+	};
+
 	return (
 		<>
 			<div className={classes.HeaderContainer}>
-				<div className={classes.LeftSideLogo}>
+				<div className={classes.LeftSideLogo} onClick={handleLogoClick}>
 					{/* Placeholder logo */}
 					<Image alt='logo' src='./logo.svg' height={50} width={50} />
 				</div>
