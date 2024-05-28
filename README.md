@@ -1,4 +1,8 @@
-Recipe generator (name undecided) work in process.
+# 🍳 AI Recipe Generator (Name TBD) 
+
+🚧 **Work in Progress** 🚧
+
+## Getting Started
 
 First, run the development server:
 
